@@ -1,0 +1,66 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="hero">
+				<div class="emoji-divider">🍼💼</div>
+				<h1>Diapers & Desks</h1>
+				<p class="tagline">The community for working parents of kids 0-5.<br/>Real talk. Real strategies. Zero judgment.</p>
+			</div>
+
+			<div class="newsletter-signup">
+				<h3>Join the Guilt-Free Zone</h3>
+				<p>Our weekly newsletter for working parents who are done pretending they have it all together.</p>
+				<form action="#" method="post">
+					<input type="email" placeholder="Your email" required />
+					<button type="submit">Count Me In</button>
+				</form>
+			</div>
+
+			<section>
+				<h2 style="margin-top: 2em; margin-bottom: 1em;">Latest Posts</h2>
+				<ul style="list-style: none; padding: 0;">
+					{posts.map((post) => (
+						<li style="margin-bottom: 2em; padding-bottom: 2em; border-bottom: 1px solid rgba(var(--gray-light), 1);">
+							<a href={`/blog/${post.id}/`} style="text-decoration: none;">
+								<h3 style="margin-bottom: 0.3em; font-size: 1.5em; color: rgb(var(--black));">{post.data.title}</h3>
+							</a>
+							<p style="color: rgb(var(--gray)); font-size: 0.85em; margin-bottom: 0.5em;">
+								<FormattedDate date={post.data.pubDate} />
+							</p>
+							<p style="color: rgb(var(--gray-dark));">{post.data.description}</p>
+							<a href={`/blog/${post.id}/`} style="color: var(--accent); font-weight: 700;">Read more →</a>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<div class="newsletter-signup" style="margin-top: 2em;">
+				<h3>You're Not Alone in This</h3>
+				<p>Join thousands of working parents navigating the beautiful chaos of kids 0-5 and careers.</p>
+				<form action="#" method="post">
+					<input type="email" placeholder="Your email" required />
+					<button type="submit">Join the Community</button>
+				</form>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
