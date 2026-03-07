@@ -1,7 +1,7 @@
 ---
-title: 'The Mental Load of Being the "Default Parent"'
-description: 'You are the one who knows the pediatrician's number by heart, remembers that Tuesday is library day, and mentally tracks when the diaper supply hits critical. While holding down a career. Welcome to the invisible shift.'
-pubDate: 'Mar 07 2026'
+title: "The Mental Load of Being the Default Parent"
+description: "You are the one who knows the pediatrician number by heart, remembers that Tuesday is library day, and mentally tracks when the diaper supply hits critical. While holding down a career. Welcome to the invisible shift."
+pubDate: "Mar 07 2026"
 ---
 
 *You're the one who knows the pediatrician's number by heart, tracks the diaper inventory in your head, and remembers that Tuesday is library day. While also holding down a career. Welcome to the invisible shift that never clocks out.*
